@@ -1,12 +1,12 @@
- steps:
- - name: 'node'
+steps:
+  - name: 'node'
     entrypoint: 'npm'
     args: ['install']
- - name: 'node'
+  - name: 'node'
     entrypoint: 'npm'
     args: ['test']
- - name: 'node'
+  - name: 'node'
     entrypoint: 'npm'
     args: ['run', 'build']
- - name: 'gcr.io/cloud-builders/docker'
-    args: [ 'build', '-t', 'us-central1-docker.pkg.dev/kubernetes-cicd-pipeline/kubernetes-container-images/micro-service-app1', '.' ]
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', 'us-central1-docker.pkg.dev/kubernetes-cicd-pipeline/kubernetes-container-images/micro-service-app1', '.']
