@@ -34,6 +34,7 @@ app.post("/store-file", (req, res) => {
                 message: "Success."
             })
         } catch (err) {
+            console.log(err)
             console.log("file not getting store")
             // Handle the error here
             return res.status(400).json({
