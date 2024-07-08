@@ -1,0 +1,32 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: app-volume-pv
+spec:
+  capacity:
+    storage: 10Gi
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: standard
+  gcePersistentDisk:
+    pdName: kubernetes-storage-disk
+    fxType: ext4
+---
+
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: app-volume-pvc
+spec:
+  volumeName: app-volume-pv
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: standard
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 10Gi
+  selector:
+    matchLabels:
+      name: app-volume-pv

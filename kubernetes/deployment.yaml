@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: microservices-deployment
+  labels:
+    app: microservice-app1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: microservice-app1
+      tier: web
+  template:
+    metadata:
+      labels:
+        app: microservice-app1
+        tier: web
+    spec:
+      containers:
+      - name: microservice-app1
+        image: us-central1-docker.pkg.dev/kubernetes-cicd-pipeline/kubernetes-container-images/micro-service-app1:latest
+        ports:
+        - containerPort: 6000
+        volumeMounts:
+        - mountPath: /Jay_PV_dir
+          name: storage-disk-volume
+      volumes:
+      - name: storage-disk-volume
+        persistentVolumeClaim:
+          claimName: app-volume-pvc
