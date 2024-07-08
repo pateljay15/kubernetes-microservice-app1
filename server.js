@@ -22,8 +22,8 @@ app.post("/store-file", (req, res) => {
         })
     }
 
-    if (fs.existsSync("../jay_PV_dir") && req.body.data != null) {
-        const filePath = '../jay_PV_dir/'+req.body.file;
+    if (fs.existsSync("../Jay_PV_dir") && req.body.data != null) {
+        const filePath = '../Jay_PV_dir/'+req.body.file;
 
         try {
             // Writing data to the file synchronously
