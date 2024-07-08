@@ -34,6 +34,7 @@ app.post("/store-file", (req, res) => {
                 message: "Success."
             })
         } catch (err) {
+            console.log("file not getting store")
             // Handle the error here
             return res.status(400).json({
                 file: req.body.file,
@@ -41,6 +42,7 @@ app.post("/store-file", (req, res) => {
             })
         }
     } else {
+        console.log("directory not getting")
         return res.status(400).json({
             file: req.body.file,
             error: "Error while storing the file to the storage."
