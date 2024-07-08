@@ -4,7 +4,7 @@ metadata:
   name: app-volume-pv
 spec:
   capacity:
-    storage: 10Gi
+    storage: 20Gi
   accessModes:
     - ReadWriteOnce
   storageClassName: standard
@@ -23,7 +23,7 @@ spec:
   storageClassName: standard
   resources:
     requests:
-      storage: 10Gi
+      storage: 20Gi
   selector:
     matchLabels:
       name: app-volume-pv
