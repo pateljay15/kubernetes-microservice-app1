@@ -19,6 +19,7 @@ spec:
       containers:
       - name: microservice-app1
         image: us-central1-docker.pkg.dev/kubernetes-cicd-pipeline/kubernetes-container-images/micro-service-app1:latest
+        command: ["sh", "-c", "chmod -R 777 /Jay_PV_dir"]
         ports:
         - containerPort: 6000
         volumeMounts:
