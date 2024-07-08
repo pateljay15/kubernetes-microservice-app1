@@ -16,10 +16,14 @@ spec:
         app: microservice-app1
         tier: web
     spec:
+      securityContext:
+        fsGroup: 1000
       containers:
       - name: microservice-app1
         image: us-central1-docker.pkg.dev/kubernetes-cicd-pipeline/kubernetes-container-images/micro-service-app1:latest
-        command: ["sh", "-c", "chown -R 1000:1000 /Jay_PV_dir"]
+        securityContext:
+          runAsUser: 0  # Run as root
+        command: ["sh", "-c", "chown -R 1000:1000 /Jay_PV_dir && chmod -R 770 /Jay_PV_dir"]
         ports:
         - containerPort: 6000
         volumeMounts:
