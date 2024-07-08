@@ -10,9 +10,8 @@ spec:
   storageClassName: standard
   gcePersistentDisk:
     pdName: kubernetes-storage-disk
-    fxType: ext4
+    fsType: ext4
 ---
-
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
@@ -22,8 +21,6 @@ spec:
   accessModes:
     - ReadWriteOnce
   storageClassName: standard
-  accessModes:
-  - ReadWriteOnce
   resources:
     requests:
       storage: 10Gi

@@ -9,6 +9,6 @@ spec:
     app: microservice-app1
     tier: web
   ports:
-  - port: 80
-    targetPort: 6000
+    - port: 80
+      targetPort: 6000
   type: LoadBalancer
