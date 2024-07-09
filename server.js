@@ -84,7 +84,7 @@ app.post("/calculate", (req, res) => {
         })
     }
     
-    axios.post("http://microservice-app2-service/calculate",{ 
+    axios.post("http://microservice-app2-service:80/calculate",{ 
         file: req.body.file,
         product: req.body.product
     }).then(response => {
