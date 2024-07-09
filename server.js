@@ -65,6 +65,35 @@ app.post("/store-file", (req, res) => {
 
     // res.send("Hello micro service 1");
 });
+
+
+app.post("/calculate", (req, res) => {
+
+    if (!req.body.file) {
+        return res.status(400).json({
+            file: null,
+            error: "Invalid JSON input."
+        })
+    }
+
+    if (fs.existsSync("/Jay_PV_dir/"+req.body.file)) {
+    } else {
+        return res.status(400).json({
+            file: req.body.file,
+            error: "File not found."
+        })
+    }
+    
+    axios.post("http://microservice-app2-service/calculate",{ 
+        file: req.body.file,
+        product: req.body.product
+    }).then(response => {
+        return res.send(response.data)
+    }).catch(err => {
+        console.log(err)
+        return res.status(400).json(err?.response?.data || err)
+    })
+});
   
   
 app.listen(6000, () => {

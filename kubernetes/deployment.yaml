@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: microservices-deployment
+  name: microservices-deployment-app1
   labels:
     app: microservice-app1
 spec:
